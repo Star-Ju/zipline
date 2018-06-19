@@ -3,7 +3,7 @@ Trading Calendars
 
 What is a Trading Calendar?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A trading calendar represents the timing information of a single market exchange. The timing information is made up of two parts: sessions, and opens/closes. This is represented by the Zipline :class:`~zipline.utils.calendars.trading_calendar.TradingCalendar` class, and is used as the parent class for all new ``TradingCalendar`` s.
+A trading calendar represents the timing information of a single market exchange. The timing information is made up of two parts: sessions, and opens/closes. This is represented by the Zipline :class:`~trading_calendars.trading_calendar.TradingCalendar` class, and is used as the parent class for all new ``TradingCalendar`` s.
 
 A session represents a contiguous set of minutes, and has a label that is midnight UTC. It is important to note that a session label should not be considered a specific point in time, and that midnight UTC is just being used for convenience.
 
@@ -32,7 +32,7 @@ The ``TradingCalendar`` class has many properties we should be thinking about if
 
 And several others. If you'd like to see all of the properties and methods available to you through the ``TradingCalendar`` API, please take a look at the `API Reference <http://www.zipline.io/appendix.html#trading-calendar-api>`__
 
-Now we'll take a look at the London Stock Exchange Calendar :class:`~zipline.utils.calendars.exchange_calendar_lse.LSEExchangeCalendar` as an example below:
+Now we'll take a look at the London Stock Exchange Calendar :class:`~trading_calendars.exchange_calendar_lse.LSEExchangeCalendar` as an example below:
 
 .. code-block:: python
 
@@ -88,7 +88,7 @@ Now we'll take a look at the London Stock Exchange Calendar :class:`~zipline.uti
       ])
 
 
-You can create the ``Holiday`` objects mentioned in ``def regular_holidays(self)` through the `pandas <http://pandas.pydata.org/pandas-docs/stable/>`__ module, ``pandas.tseries.holiday.Holiday``, and also take a look at the `LSEExchangeCalendar <https://github.com/quantopian/zipline/blob/master/zipline/utils/calendars/exchange_calendar_lse.py>`__ code as an example, or take a look at the code snippet below.
+You can create the ``Holiday`` objects mentioned in ``def regular_holidays(self)` through the `pandas <http://pandas.pydata.org/pandas-docs/stable/>`__ module, ``pandas.tseries.holiday.Holiday``, and also take a look at the `LSEExchangeCalendar <https://github.com/quantopian/zipline/blob/master/trading_calendars/exchange_calendar_lse.py>`__ code as an example, or take a look at the code snippet below.
 
 .. code-block:: python
 
@@ -125,7 +125,7 @@ First we'll start off by importing some modules that will be useful to us.
   from pytz import timezone
 
   # for creating and registering our calendar
-  from zipline.utils.calendars import (
+  from trading_calendars import (
     register_calendar,
     TradingCalendar
   )
